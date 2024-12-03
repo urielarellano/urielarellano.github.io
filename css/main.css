@@ -3,10 +3,12 @@ header {
     width: 100%;
     top: 0;
     left: 0;
+    padding-top: -10px;
+    padding-bottom: -10px;
     padding-left: 20px;
     background-color: #9FF999;
     font-family: 'Palatino', serif;
-    font-size: 30px;
+    font-size: 25px;
     color: #6d491c;
 }
 
@@ -15,17 +17,48 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 nav ul li {
     display: inline-block;
+    flex-direction: row;
     list-style: none;
-    margin: 10px 60px;
+    margin: 1px 60px;
     color: #39833d;
+    vertical-align: middle;
+    margin-left: 20px;
 }
-nav ul li a{
+
+nav ul li a, nav ul li form {
     display: flex;
     flex-direction: row;
     text-decoration: none;
-    
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul li form input {
+    width: 300px;
+    height: 30px;
+    font-size: 20px;
+}
+
+.search-icon {
+    width: 45px;
+    height: 45px;
+    margin-left: 15px;
+    background-color: #63F151;
+    border-style: solid;
+    border-color: #63F151;
+    border-width: 3px;
+    border-radius:25%;
+}
+
+.profile-icon {
+    width: 55px;
+    height: 55px;
+    margin-right: 10px;
+    background-color: #63F151;
+    border-radius: 50%;
 }
