@@ -2,7 +2,6 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const { MongoClient } = require('mongodb');
 const path = require('path');
-var mongoose = require('mongoose');
 
 const app = express();
 const port = 5500;
@@ -12,7 +11,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }));
 
 const uri = 'mongodb+srv://urithebeaner:Ashorthike108@bookbase.bt2dd.mongodb.net/?retryWrites=true&w=majority&appName=BookBase';
-mongoose.connect(uri);
+MongoClient.connect(uri);
 
 /*
 const client = new MongoClient(uri);
