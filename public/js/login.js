@@ -1,12 +1,33 @@
-function getUserInfo() {
-    var email = document.getElementById("email").value;
-    var password = document.getElementById("password").value;
-    var user = {
-        email: email,
-        password: password
+async function getUserInfo(event) {
+    event.preventDefault();
+
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+    
+    try {
+        const response = await fetch('/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({email, password})
+        });
+
+        if (response.ok) {
+            const result = await response.text();
+            console.log(result);
+            window.location.href = '/index.html';
+        } else {
+            console.error('Error logging in');
+            alert('Error signing up');
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert('Error signing up');
     }
-    console.log(user);
 }
+
+document.getElementById('signupForm').addEventListener('submit', getUserInfo);
 
 
 
@@ -18,3 +39,4 @@ function getUserInfo() {
     // if they are, it doesn't really change... BUT
     // the profile icon will change, remove the login option
     // and have an option to go to their profile
+

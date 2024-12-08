@@ -11,24 +11,48 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }));
 
 const uri = 'mongodb+srv://urithebeaner:Ashorthike108@bookbase.bt2dd.mongodb.net/?retryWrites=true&w=majority&appName=BookBase';
-MongoClient.connect(uri);
-
-/*
 const client = new MongoClient(uri);
 
-client.connect(err => {
-    if (err) {
-        console.error('Failed to connect to MongoDB', err);
-        process.exit(1);
-    }
-    console.log('Connected to MongoDB');
-    const db = client.db('BookBase');
-});
-*/
+async function listDatabases(client) {
+    const databasesList = await client.db().admin().listDatabases();
+    console.log("Databases:");
+    databasesList.databases.forEach(db => console.log(` - ${db.name}`));
+}
 
-app.listen(port, () => {
-    console.log(`Server running at http://localhost:${port}/`);
-});
+async function main() {
+    await client.connect();
+    console.log('Connected to MongoDB');
+    
+    const db = client.db('BookBase');
+    const usersCollection = db.collection('Users');
+
+    /*
+    await usersCollection.insertOne({
+        email: 'stever@gmail.com',
+        password: 'ninja'
+    });
+    */
+
+    app.post('/login', async (req, res) => {
+        const {email, password} = req.body;
+        try {
+            await usersCollection.insertOne({email, password});
+            res.status(200).send('User signed up successfully');
+        } catch (error) {
+            console.error('Error inserting user', error);
+            res.status(500).send('Internal Server Error');
+        }
+    });
+
+    app.listen(port, () => {
+        console.log(`Server running at http://localhost:${port}/`);
+    });
+}
+
+main().catch(console.error);
+
+
+
 
 // get = post data to the webpage, or do api response, whatever
     // retrieves data from url
