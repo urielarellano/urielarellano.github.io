@@ -20,7 +20,7 @@ function signOut() {
 async function checkUserInfo() {
     var user = JSON.parse(localStorage.getItem('user'));
     if (user) {
-        const email = user[0];
+        var email = user[0];
         const password = user[1];
         try {
             const response = await fetch(`/home?email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`);
@@ -39,7 +39,7 @@ async function checkUserInfo() {
                 document.getElementById("Profile").classList.toggle("display-toggle");
                 document.getElementById("Signout").classList.toggle("display-toggle");
                 //////////////////////////////////////////////////////////////
-                
+
             } else {
                 console.error('Error fetching user info');
                 alert('Error fetching user info');
@@ -56,8 +56,12 @@ async function checkUserInfo() {
 
 var user = JSON.parse(localStorage.getItem('user'));
 try {
-    if (user)
+    if (user) {
         document.getElementById("noUser").classList.toggle("display-toggle");
+        const userGreeting = document.getElementById("userGreeting");
+        var userEmail = user[0];
+        userGreeting.textContent = "We've been waiting for you, " + userEmail.split('@')[0] + ".";
+    }
     else
         document.getElementById("userLoggedIn").classList.toggle("display-toggle");
 } catch (error) {
