@@ -44,6 +44,18 @@ async function main() {
         }
     });
 
+    app.get('/home', async (req, res) => {
+        const {email, password} = req.body;
+        // firstly, login.js needs to also store the info temporarily somewhere
+        // AKA the info is stored for the login session
+
+        // then in our index.js, we get this info and send it to the server
+        // and then THIS functio that I'm writing in takes that info (if it exists),
+            // creates a json of it (or doesn't idfk)
+            // then checks if that info matches any in the DB
+    });
+
+
     app.listen(port, () => {
         console.log(`Server running at http://localhost:${port}/`);
     });

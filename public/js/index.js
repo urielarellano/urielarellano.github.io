@@ -12,3 +12,18 @@ window.onclick = function(event) {
         }
     }
 }
+
+function signOut() {
+    localStorage.removeItem('user');
+}
+
+async function checkUserInfo() {
+    var merp = '0';
+}
+
+const user = localStorage.getItem('user');
+    if (user) {
+        const userArray = JSON.parse(user);
+        console.log(userArray[0]);
+    }
+        

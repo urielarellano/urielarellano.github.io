@@ -3,6 +3,7 @@ async function getUserInfo(event) {
 
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
+    const user = [email, password];
     
     try {
         const response = await fetch('/login', {
@@ -14,6 +15,8 @@ async function getUserInfo(event) {
         });
 
         if (response.ok) {
+            var curr_user = `["${email}", "${password}"]`;
+            localStorage.setItem('user', curr_user);
             const result = await response.text();
             console.log(result);
             window.location.href = '/index.html';
@@ -28,7 +31,6 @@ async function getUserInfo(event) {
 }
 
 document.getElementById('signupForm').addEventListener('submit', getUserInfo);
-
 
 
 
