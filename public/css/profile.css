@@ -106,24 +106,37 @@ main {
     margin-top: 200px; /* Adds space between header and content */
 }
 
+/* Profile Page Container */
+.profile-page-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Aligns items to the top */
+    margin: 100px auto;
+    width: 80%;
+    max-width: 1200px;
+    gap: 20px; /* Spacing between boxes */
+}
+
 /* Profile Section */
 .profile-container {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    margin: 40px auto;
-    width: 80%;
-    max-width: 400px;
+    flex: 0 0 30%; /* Fixed width, does not grow or shrink */
+    height: 300px; /* Fixed height */
     background-color: #fff;
     border: 2px solid #ddd;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 20px;
+    box-sizing: border-box;
+    position: relative;
+    align-self: flex-start; /* Fixes the profile box at the top */
 }
 
 .profile-picture {
-    width: 80px;
-    height: 80px;
+    width: 160px;
+    height: 160px;
     border-radius: 50%;
     background-color: #f0f0f0;
     display: flex;
@@ -149,11 +162,25 @@ main {
     color: #555;
 }
 
+/* Bookshelf Section */
+.bookshelf {
+    flex: 0 0 65%; /* Fixed width for bookshelf */
+    background-color: #fff;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Ensures the content starts at the top */
+}
+
 /* Tabs Styling */
 .tabs {
     display: flex;
     justify-content: center;
-    margin: 20px;
+    margin-bottom: 20px;
 }
 
 .tablink {
@@ -171,24 +198,21 @@ main {
     background-color: #ccc;
 }
 
-/* Active Tab Styling */
 .tablink.active {
-    background-color: #90ee90; /* Matches header color */
+    background-color: #90ee90;
     font-weight: bold;
     color: #333;
-    border-bottom: 3px solid #008000; /* Green border */
+    border-bottom: 3px solid #008000;
 }
 
-/* Tab Content Styling */
 .tabcontent {
-    display: none; /* Hidden by default */
+    display: none;
     padding: 20px;
     text-align: center;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
-    margin: 10px auto;
-    max-width: 800px;
+    margin-top: 10px;
 }
 
 .tabcontent h2 {
@@ -209,21 +233,15 @@ main {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    header {
-        font-size: 1.2em;
-    }
-    main {
-        margin-top: 150px;
-    }
-    .tablink {
-        font-size: 0.9em;
-        padding: 8px 12px;
-    }
-    .profile-container {
+    .profile-page-container {
         flex-direction: column;
         align-items: center;
     }
-    .profile-picture {
-        margin: 0 0 10px 0;
+
+    .profile-container,
+    .bookshelf {
+        width: 100%;
+        height: auto;
+        margin-bottom: 20px;
     }
 }

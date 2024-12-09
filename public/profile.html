@@ -41,64 +41,66 @@
     
     <!-- Profile Section -->
     <main>
-        <!-- Profile Info -->
-        <div class="profile-container">
-            <div class="profile-picture">
-                <img src="assets/profile-icon.png" alt="Profile Icon">
-            </div>
-            <div class="profile-details">
-                <h2 id="userName">Name</h2>
-                <p>General Area<br>(Chicago, IL)</p>
-                <div class="message-icon">
-                    <p>Message</p>
+        <div class="profile-page-container">
+            <!-- Profile Info -->
+            <div class="profile-container">
+                <div class="profile-picture">
+                    <img src="assets/profile-icon.png" alt="Profile Icon">
+                </div>
+                <div class="profile-details">
+                    <h2 id="userName">Name</h2>
+                    <p>General Area<br>(Chicago, IL)</p>
+                    <div class="message-icon">
+                        <p>Message</p>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Bookshelf Section -->
-        <div class="bookshelf">
-            <!-- Tabs -->
-            <div class="tabs">
-                <button class="tablink" onclick="openTab(event, 'Recent')" id="defaultTab">Recent</button>
-                <button class="tablink" onclick="openTab(event, 'Read')">Read</button>
-                <button class="tablink" onclick="openTab(event, 'Reading')">Reading</button>
-                <button class="tablink" onclick="openTab(event, 'Wishlist')">Wishlist</button>
-            </div>
+            <!-- Bookshelf Section -->
+            <div class="bookshelf">
+                <!-- Tabs -->
+                <div class="tabs">
+                    <button class="tablink" onclick="openTab(event, 'Recent')" id="defaultTab">Recent</button>
+                    <button class="tablink" onclick="openTab(event, 'Read')">Read</button>
+                    <button class="tablink" onclick="openTab(event, 'Reading')">Reading</button>
+                    <button class="tablink" onclick="openTab(event, 'Wishlist')">Wishlist</button>
+                </div>
 
-            <!-- Tab Content -->
-            <div id="Recent" class="tabcontent">
-                <h2>Recent Books</h2>
-                <ul>
-                    <li>The Midnight Library</li>
-                    <li>Where the Crawdads Sing</li>
-                    <li>The Silent Patient</li>
-                </ul>
-            </div>
+                <!-- Tab Content -->
+                <div id="Recent" class="tabcontent">
+                    <h2>Recent Books</h2>
+                    <ul>
+                        <li>The Midnight Library</li>
+                        <li>Where the Crawdads Sing</li>
+                        <li>The Silent Patient</li>
+                    </ul>
+                </div>
 
-            <div id="Read" class="tabcontent">
-                <h2>Books You've Read</h2>
-                <ul>
-                    <li>1984 by George Orwell</li>
-                    <li>Pride and Prejudice</li>
-                    <li>To Kill a Mockingbird</li>
-                </ul>
-            </div>
+                <div id="Read" class="tabcontent">
+                    <h2>Books You've Read</h2>
+                    <ul>
+                        <li>1984 by George Orwell</li>
+                        <li>Pride and Prejudice</li>
+                        <li>To Kill a Mockingbird</li>
+                    </ul>
+                </div>
 
-            <div id="Reading" class="tabcontent">
-                <h2>Currently Reading</h2>
-                <ul>
-                    <li>Atomic Habits</li>
-                    <li>Educated: A Memoir</li>
-                </ul>
-            </div>
+                <div id="Reading" class="tabcontent">
+                    <h2>Currently Reading</h2>
+                    <ul>
+                        <li>Atomic Habits</li>
+                        <li>Educated: A Memoir</li>
+                    </ul>
+                </div>
 
-            <div id="Wishlist" class="tabcontent">
-                <h2>Books on Your Wishlist</h2>
-                <ul>
-                    <li>Project Hail Mary</li>
-                    <li>The Song of Achilles</li>
-                    <li>The Alchemist</li>
-                </ul>
+                <div id="Wishlist" class="tabcontent">
+                    <h2>Books on Your Wishlist</h2>
+                    <ul>
+                        <li>Project Hail Mary</li>
+                        <li>The Song of Achilles</li>
+                        <li>The Alchemist</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </main>
