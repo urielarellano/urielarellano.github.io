@@ -68,6 +68,10 @@ main {
     margin: 5px 0;
     color: #555;
 }
+.profile-details div {
+    margin: 5px 0;
+    color: #555;
+}
 
 /* Bookshelf Section */
 .bookshelf {

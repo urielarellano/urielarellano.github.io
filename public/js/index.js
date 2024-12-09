@@ -38,6 +38,7 @@ async function checkUserInfo() {
                 document.getElementById("Signup").classList.toggle("display-toggle");
                 document.getElementById("Profile").classList.toggle("display-toggle");
                 document.getElementById("Signout").classList.toggle("display-toggle");
+                //////////////////////////////////////////////////////////////
                 
             } else {
                 console.error('Error fetching user info');
@@ -49,8 +50,6 @@ async function checkUserInfo() {
         }
     } else {
         console.log('No user info found in localStorage');
-        alert('No user info found in localStorage');
-        //document.getElementById("userLoggedIn").classList.toggle("display-toggle");
     }
 }
 

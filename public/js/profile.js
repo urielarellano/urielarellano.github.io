@@ -24,6 +24,28 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("defaultTab").click();
 });
 
+async function getUserLocation() {
+    var user = JSON.parse(localStorage.getItem('user'));
+    if (user) {
+        const email = user[0];
+        const password = user[1];
+        
+        try {
+            var response = await fetch(`/home?email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`);
+            if (response.ok) {
+                var user = await response.json();
+                var location = user.location;
+                
+                const locationElement = document.getElementById('location');
+                locationElement.textContent = location;
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert('Error fetching user info');
+        }
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     const userNameElement = document.getElementById('userName');
     const user = JSON.parse(localStorage.getItem('user'));
@@ -34,5 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
         userNameElement.textContent = 'Name'; // Placeholder if the user is not logged in
     }
+    getUserLocation();
+
 });
 
