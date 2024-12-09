@@ -29,8 +29,30 @@ async function main() {
     app.post('/login', async (req, res) => {
         const {email, password} = req.body;
         try {
-            await usersCollection.insertOne({email, password});
-            res.status(200).send('User signed up successfully');
+            const user = await usersCollection.findOne({email, password});
+            if (!user) {
+                res.status(404).send('User not found');
+                return;
+            }
+            res.status(200).send('User logged in successfully');
+        } catch (error) {
+            console.error('Error finding user', error);
+            res.status(500).send('Internal Server Error');
+        }
+    });
+
+    app.post('/signup', async (req, res) => {
+        const {email, password, location} = req.body;
+        try {
+            const user = await usersCollection.findOne({email, password, location});
+            if (user) {
+                res.status(409).send('User already exists');
+                return;
+            }
+            else {
+                await usersCollection.insertOne({email, password, location});
+                res.status(200).send('User signed up successfully');
+            }
         } catch (error) {
             console.error('Error inserting user', error);
             res.status(500).send('Internal Server Error');

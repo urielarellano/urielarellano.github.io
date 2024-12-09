@@ -23,12 +23,12 @@ async function getUserInfo(event) {
             console.log(result);
             window.location.href = '/index.html';
         } else {
-            console.error('Error logging in');
-            alert('Error signing up');
+            console.error('Incorrect email or password');
+            alert('Error logging in');
         }
     } catch (error) {
         console.error('Error:', error);
-        alert('Error signing up');
+        alert('Error logging in');
     }
 }
 
