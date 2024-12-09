@@ -45,12 +45,23 @@ async function main() {
     });
 
     app.get('/home', async (req, res) => {
-        const {email, password} = req.body;
-        // firstly, login.js needs to also store the info temporarily somewhere
-        // AKA the info is stored for the login session
+        const {email, password} = req.query;
+        try {
+            const user = await usersCollection.findOne({email, password});
+            if (user) {
+                //res.status(200).send('User found: ' + email);
+                res.status(200).send(user);
+                console.log('Current user:', user);
+            } else {
+                res.status(404).send('User not found');
+            }
+        } catch (error) {
+            console.error('Error finding user', error);
+            res.status(500).send('Internal Server Error');
+        }
 
         // then in our index.js, we get this info and send it to the server
-        // and then THIS functio that I'm writing in takes that info (if it exists),
+        // and then THIS function that I'm writing in takes that info (if it exists),
             // creates a json of it (or doesn't idfk)
             // then checks if that info matches any in the DB
     });

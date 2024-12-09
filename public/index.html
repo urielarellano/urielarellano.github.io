@@ -26,10 +26,11 @@
                         
                         <img src="assets/profile-icon.png" class="profile-icon" onclick="profileFunction()">
                         <div id="profileDropdown" class="profile-dropdown">
-                            <a href="profile.html">Profile</a>
-                            <a href="login.html">Login</a>
-                            <a href="signup.html">Signup</a>
-                            <a href="index.html" onclick="signOut()">Sign out</a>
+                            <div id="Profile"><a href="profile.html">Profile</a></div>
+                            <div id="Login"><a href="login.html">Login</a></div>
+                            <div id="Signup"><a href="signup.html" id="Signup">Signup</a></div>
+                            <div id="Signout"><a href="index.html" onclick="signOut()">Sign out</a></div>
+                            
                         </div>
                         </a>
                     </li>
@@ -37,44 +38,21 @@
             </nav>
         </header>
 
-
-        <div>
-
-            <form>
-            </form>
-        </div>
-
         <br>
         <br>
         <br>
         <p>hello</p>
         <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <h1>Get scammed</h1>
-        <h1>Get scammed</h1>
-        <h1>Get scammed</h1>
-        <h1>Get scammed</h1>
-        <h1>Get scammed</h1>
-        <h1>Get scammed</h1>
-        <h1>Get scammed</h1>
-        <h1>Get scammed</h1>
-        <h1>Get scammed</h1>
-        <h1>Get scammed</h1>
-        <h1>Get scammed</h1>
-        <h1>Get scammed</h1>
+        
+        <div id="noUser">
+            <h1>Welcome to BookBase. Click the profile icon in the top right, then click login or signup to proceed.</h1>
+        </div>
+
+        <div id="userLoggedIn">
+            <h1>Seems you successfully logged in. Congrats buddy.</h1>
+        </div>
 
         <script src="js/index.js"></script>
         
     </body>
-
 </html>

@@ -1,3 +1,5 @@
+// stores user's email and password into the database
+// and stores it in local storage too, as a formatted JSON string
 async function getUserInfo(event) {
     event.preventDefault();
 

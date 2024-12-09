@@ -91,6 +91,9 @@ nav ul li form input {
     border-radius: 5%;
 }
 .droppy {display:block;}
+
+
+
 main {
     margin-top: 200px; /* Adds space between header and content */
 }
@@ -109,4 +112,9 @@ main {
 .home-link:hover {
     text-decoration: underline; /* Optional hover effect */
     color: #555; /* Slight color change on hover */
+}
+
+
+.display-toggle {
+    display: none;
 }
