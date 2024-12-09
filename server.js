@@ -26,13 +26,6 @@ async function main() {
     const db = client.db('BookBase');
     const usersCollection = db.collection('Users');
 
-    /*
-    await usersCollection.insertOne({
-        email: 'stever@gmail.com',
-        password: 'ninja'
-    });
-    */
-
     app.post('/login', async (req, res) => {
         const {email, password} = req.body;
         try {

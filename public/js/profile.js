@@ -1,3 +1,5 @@
+
+
 function openTab(evt, tabName) {
     // Hide all tab contents
     var i, tabcontent, tablinks;
@@ -33,3 +35,4 @@ document.addEventListener('DOMContentLoaded', () => {
         userNameElement.textContent = 'Name'; // Placeholder if the user is not logged in
     }
 });
+

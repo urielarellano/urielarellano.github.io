@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/profile.css">
+    <link rel="stylesheet" href="css/main.css">
     <link href='https://fonts.googleapis.com/css?family=Ingrid Darling' rel='stylesheet'>
     <title>CS409 Final Project Profile Page</title>
 </head>
@@ -14,25 +14,26 @@
     <!-- Header Section -->
     <header>
         <nav>
-            <h1>
-                <a href="index.html" class="home-link">Book Base</a>
-            </h1>
+            <h1>Book Base</h1>
             <ul>
                 <li>
                     <form>
-                        <input type="text" name="search" placeholder="Search books...">
-                        <a href="#"><img src="assets/search-icon.png" class="search-icon"></a>
+                        <input type="text" name="search">
+                        <a href="#"><img src="assets/search-icon.png" class="search-icon">
+                        </a>
                     </form>
+                    
                 </li>
-                <li>
-                    <a>
-                        <img src="assets/profile-icon.png" class="profile-icon" onclick="profileFunction()">
-                        <div id="profileDropdown" class="profile-dropdown">
-                            <a href="profile.html">Profile</a>
-                            <a href="login.html">Login</a>
-                            <a href="signup.html">Signup</a>
-                            <a href="index.html" onclick="signOut()">Sign out</a>
-                        </div>
+                <li><a>
+                    
+                    <img src="assets/profile-icon.png" class="profile-icon" onclick="profileFunction()">
+                    <div id="profileDropdown" class="profile-dropdown">
+                        <div id="Profile"><a href="profile.html">Profile</a></div>
+                        <div id="Login"><a href="login.html">Login</a></div>
+                        <div id="Signup"><a href="signup.html" id="Signup">Signup</a></div>
+                        <div id="Signout"><a href="index.html" onclick="signOut()">Sign out</a></div>
+                        
+                    </div>
                     </a>
                 </li>
             </ul>
@@ -106,7 +107,7 @@
     </main>
 
     <!-- JavaScript -->
-    <script src="js/index.js"></script>
     <script src="js/profile.js"></script>
+    <script src="js/index.js"></script>
 </body>
 </html>
