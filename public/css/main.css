@@ -91,3 +91,22 @@ nav ul li form input {
     border-radius: 5%;
 }
 .droppy {display:block;}
+main {
+    margin-top: 200px; /* Adds space between header and content */
+}
+
+@media (max-width: 768px) {
+    main {
+        margin-top: 20px; /* Adjust spacing for smaller screens */
+    }
+}
+
+.home-link {
+    text-decoration: none; /* Removes underline */
+    color: inherit; /* Inherits the header text color */
+}
+
+.home-link:hover {
+    text-decoration: underline; /* Optional hover effect */
+    color: #555; /* Slight color change on hover */
+}

@@ -1,1 +1,90 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/profile.css">
+    <link href='https://fonts.googleapis.com/css?family=Ingrid Darling' rel='stylesheet'>
+    <title>CS409 Final Project Homepage</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <h1>
+                <a href="index.html" class="home-link">Book Base</a>
+            </h1>
+            <ul>
+                <li>
+                    <form>
+                        <input type="text" name="search" placeholder="Search books...">
+                        <a href="#"><img src="assets/search-icon.png" class="search-icon"></a>
+                    </form>
+                </li>
+                <li>
+                    <a>
+                        <img src="assets/profile-icon.png" class="profile-icon" onclick="profileFunction()">
+                        <div id="profileDropdown" class="profile-dropdown">
+                            <a href="login.html">Login</a>
+                            <a href="signup.html">Signup</a>
+                            <a href="#" onclick="signOut()">Sign out</a>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    
+
+    <main>
+        <div class="bookshelf">
+            <div class="tabs">
+                <button class="tablink" onclick="openTab(event, 'Recent')" id="defaultTab">Recent</button>
+                <button class="tablink" onclick="openTab(event, 'Read')">Read</button>
+                <button class="tablink" onclick="openTab(event, 'Reading')">Reading</button>
+                <button class="tablink" onclick="openTab(event, 'Wishlist')">Wishlist</button>
+            </div>
+
+            <div id="Recent" class="tabcontent">
+                <h2>Recent Books</h2>
+                <ul>
+                    <li>The Midnight Library</li>
+                    <li>Where the Crawdads Sing</li>
+                    <li>The Silent Patient</li>
+                </ul>
+            </div>
+
+            <div id="Read" class="tabcontent">
+                <h2>Books You've Read</h2>
+                <ul>
+                    <li>1984 by George Orwell</li>
+                    <li>Pride and Prejudice</li>
+                    <li>To Kill a Mockingbird</li>
+                </ul>
+            </div>
+
+            <div id="Reading" class="tabcontent">
+                <h2>Currently Reading</h2>
+                <ul>
+                    <li>Atomic Habits</li>
+                    <li>Educated: A Memoir</li>
+                </ul>
+            </div>
+
+            <div id="Wishlist" class="tabcontent">
+                <h2>Books on Your Wishlist</h2>
+                <ul>
+                    <li>Project Hail Mary</li>
+                    <li>The Song of Achilles</li>
+                    <li>The Alchemist</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/main.js"></script>
+    <script src="js/profile.js"></script>
+</body>
+</html>
