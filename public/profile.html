@@ -7,10 +7,11 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/profile.css">
     <link href='https://fonts.googleapis.com/css?family=Ingrid Darling' rel='stylesheet'>
-    <title>CS409 Final Project ProfilePage</title>
+    <title>CS409 Final Project Profile Page</title>
 </head>
 
 <body>
+    <!-- Header Section -->
     <header>
         <nav>
             <h1>
@@ -38,9 +39,25 @@
         </nav>
     </header>
     
-
+    <!-- Profile Section -->
     <main>
+        <!-- Profile Info -->
+        <div class="profile-container">
+            <div class="profile-picture">
+                <img src="assets/profile-icon.png" alt="Profile Icon">
+            </div>
+            <div class="profile-details">
+                <h2 id="userName">Name</h2>
+                <p>General Area<br>(Chicago, IL)</p>
+                <div class="message-icon">
+                    <p>Message</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bookshelf Section -->
         <div class="bookshelf">
+            <!-- Tabs -->
             <div class="tabs">
                 <button class="tablink" onclick="openTab(event, 'Recent')" id="defaultTab">Recent</button>
                 <button class="tablink" onclick="openTab(event, 'Read')">Read</button>
@@ -48,6 +65,7 @@
                 <button class="tablink" onclick="openTab(event, 'Wishlist')">Wishlist</button>
             </div>
 
+            <!-- Tab Content -->
             <div id="Recent" class="tabcontent">
                 <h2>Recent Books</h2>
                 <ul>
@@ -85,6 +103,7 @@
         </div>
     </main>
 
+    <!-- JavaScript -->
     <script src="js/index.js"></script>
     <script src="js/profile.js"></script>
 </body>

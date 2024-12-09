@@ -21,3 +21,15 @@ function openTab(evt, tabName) {
 document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("defaultTab").click();
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const userNameElement = document.getElementById('userName');
+    const user = JSON.parse(localStorage.getItem('user'));
+
+    if (user) {
+        const email = user[0];
+        userNameElement.textContent = email.split('@')[0]; // Display the part before the '@' as the name
+    } else {
+        userNameElement.textContent = 'Name'; // Placeholder if the user is not logged in
+    }
+});
