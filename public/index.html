@@ -5,6 +5,7 @@
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/styles.css">
         <link href='https://fonts.googleapis.com/css?family=Ingrid Darling' rel='stylesheet'>
         <title>CS409 Final Project Homepage</title>
     </head>
@@ -49,9 +50,45 @@
         </div>
 
         <div id="userLoggedIn">
-            <h1>Seems you successfully logged in. Congrats buddy.</h1>
-            <h1 id="userGreeting">Hrm</h1>
+            <div class="header1">
+                <h1>Book Subject Search</h1>
+                <!--
+                <div class="search-container">
+                    <input type="text" id="searchInput" placeholder="Search for books...">
+                    <button id="searchButton">Search</button>
+                </div>
+                -->
+            </div>
+            
+            <div class="container">
+                <!-- Left Sidebar (Genres) -->
+                <nav class="sidebar">
+                    <ul id="genreList">
+                    </ul>
+                </nav>
+        
+                <!-- Main Content -->
+                <main>
+                    <section id="searchResults"></section>
+                </main>
+        
+                <!-- Right Sidebar (Filters) -->
+                <aside class="filters">
+                    <h3>Filters</h3>
+                    <div>
+                        <label for="sortSelect">Sort by:</label>
+                        <select id="sortSelect">
+                            <option value="None">None</option>
+                            <option value="popularity">Popularity</option>
+                            <option value="alphabetical">Alphabetical</option>
+                        </select>
+                        
+                    </div>
+                </aside>
+            </div>
+            <script src="js/script.js"></script>
         </div>
+
 
         <script src="js/index.js"></script>
     </body>
