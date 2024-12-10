@@ -137,9 +137,13 @@ button:hover {
 }
 
 
-
 .added-read, .added-reading, .added-wishlist {
     display: none;
+    margin-left: 20px;
+}
+.removed-read, .removed-reading, .removed-wishlist {
+    display: none;
+    margin-left: 20px;
 }
 
 .dropdown {

@@ -113,7 +113,7 @@ async function addedToRead() {
             element.classList.toggle("dropdown");
             setTimeout(() => {
                 element.classList.toggle("dropdown");
-            }, 2500);
+            }, 2200);
             console.log('Book added to read list');
         } else {
             message = await response.text();
@@ -180,7 +180,7 @@ async function addedToWishList() {
             element.classList.toggle("dropdown");
             setTimeout(() => {
                 element.classList.toggle("dropdown");
-            }, 2500);
+            }, 2200);
             console.log('Book added to read wishlist');
         } else {
             message = await response.text();
@@ -190,5 +190,107 @@ async function addedToWishList() {
     } catch (error) {
         console.error('Error:', error);
         alert('Error adding book to wishlist');
+    }
+}
+
+
+
+async function removedFromRead() {
+    const user = JSON.parse(localStorage.getItem('user'));
+    const email = user[0];
+    const list = "read";
+
+    try {
+        const response = await fetch('/removeBook', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({email, bookTitle, list})
+        });
+
+        if (response.ok) {
+            // display the message that the book was added on the frontend
+            const element = document.getElementById("removedFromRead");
+            element.classList.toggle("dropdown");
+            setTimeout(() => {
+                element.classList.toggle("dropdown");
+            }, 2200);
+            console.log('Book removed from read list');
+        } else {
+            message = await response.text();
+            console.log(message);
+            alert(message);
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert('Error removing book from read list');
+    }
+
+}
+
+async function removedFromReading() {
+    const user = JSON.parse(localStorage.getItem('user'));
+    const email = user[0];
+    const list = "reading";
+
+    try {
+        const response = await fetch('/removeBook', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({email, bookTitle, list})
+        });
+
+        if (response.ok) {
+            // display the message that the book was added on the frontend
+            const element = document.getElementById("removedFromReading");
+            element.classList.toggle("dropdown");
+            setTimeout(() => {
+                element.classList.toggle("dropdown");
+            }, 2200);
+            console.log('Book removed from reading list');
+        } else {
+            message = await response.text();
+            console.log(message);
+            alert(message);
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert('Error removing book from reading list');
+    }
+}
+
+async function removedFromWishList() {
+    const user = JSON.parse(localStorage.getItem('user'));
+    const email = user[0];
+    const list = "wishlist";
+
+    try {
+        const response = await fetch('/removeBook', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({email, bookTitle, list})
+        });
+
+        if (response.ok) {
+            // display the message that the book was added on the frontend
+            const element = document.getElementById("removedFromWishList");
+            element.classList.toggle("dropdown");
+            setTimeout(() => {
+                element.classList.toggle("dropdown");
+            }, 2200);
+            console.log('Book removed from wishlist');
+        } else {
+            message = await response.text();
+            console.log(message);
+            alert(message);
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert('Error removing book from wishlist');
     }
 }
