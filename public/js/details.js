@@ -22,10 +22,12 @@ let bookTitle = "";
         const title = book.title || "Unknown Title";
         bookTitle = title;
         const description = book.description?.value || "No description available.";
-        const subjects = book.subjects ? book.subjects.join(", ") : "No subjects available.";
-        const places = book.subject_places ? book.subject_places.join(", ") : "No places associated.";
-        const people = book.subject_people ? book.subject_people.join(", ") : "No people associated.";
-        const createdDate = book.created?.value || "Unknown creation date.";
+        const subjects = book.subjects ? book.subjects.slice(0, 10).join(", ") + (book.subjects.length > 10 ? ", ..." : "")
+        : "No subjects available.";
+        const people = book.subject_people ? book.subject_people.slice(0, 10).join(", ") + (book.subject_people.length > 10 ? ", ..." : "")
+        : "No people associated.";
+        const places = book.subject_places ? book.subject_places.slice(0, 10).join(", ") + (book.subject_places.length > 10 ? ", ..." : "")
+        : "No places associated.";const createdDate = book.created?.value || "Unknown creation date.";
         const modifiedDate = book.last_modified?.value || "Unknown modification date.";
         const coverId = book.covers && book.covers[0] !== -1
             ? `https://covers.openlibrary.org/b/id/${book.covers[0]}-L.jpg`

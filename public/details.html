@@ -5,49 +5,67 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/details.css">
+    <link rel="stylesheet" href="css/main.css">
     <title>Book Details</title>
 </head>
 
 
+
+
 <body>
     <header>
-        <h1>Book Details</h1>
+            <nav>
+                <h1>Book Base: Book Details</h1>
+                <ul>
+                    <li><a>
+                       
+                        <img src="assets/profile-icon.png" class="profile-icon" onclick="profileFunction()">
+                        <div id="profileDropdown" class="profile-dropdown">
+                            <div id="Profile"><a href="profile.html">Profile</a></div>
+                            <div id="Login"><a href="login.html">Login</a></div>
+                            <div id="Signup"><a href="signup.html" id="Signup">Signup</a></div>
+                            <div id="Signout"><a href="index.html" onclick="signOut()">Sign out</a></div>
+                           
+                        </div>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
         <nav>
-            <a href="index.html">Back to Search</a>
+            <a href="index.html" class="button">Back to Search</a>
             <!--"hobbies": ["reading", "gaming", "coding"]-->
             <br>
-            <div class="list-buttons">
-                <button class="addToList" onclick="addToListDropdown()">Add To List</button>
-                <div id="addToListDropdown" class="add-to-list-dropdown">
-                    <div id="addToRead" onclick="addedToRead(event)">Add to Read</div>
-                    <div id="addToReading" onclick="addedToReading(event)">Add to Reading</div>
-                    <div id="addToWishlist" onclick="addedToWishList(event)">Add to Wishlist</div>
-                </div>
-                <br>
-                <br>
-                
-                <button class="removeFromList" onclick="removeFromListDropdown()">Remove From List</button>
-                <div id="removeFromListDropdown" class="remove-from-list-dropdown">
-                    <div id="removeFromRead" onclick="removedFromRead(event)">Remove From Read</div>
-                    <div id="removeFromReading" onclick="removedFromReading(event)">Remove From Reading</div>
-                    <div id="removeFromWishlist" onclick="removedFromWishList(event)">Remove From Wishlist</div>
-                </div>
-                <br>
-                <br>
-            </div>
-            <h1 id="addedToRead" class="added-read">Added to Read List...</h1>
-            <h1 id="addedToReading" class="added-reading">Added to Reading List...</h1>
-            <h1 id="addedToWishList" class="added-wishlist">Added to WishList...</h1>
-            <h1 id="removedFromRead" class="removed-read">Removed from Read List...</h1>
-            <h1 id="removedFromReading" class="removed-reading">Removed from Reading List...</h1>
-            <h1 id="removedFromWishList" class="removed-wishlist">Removed from WishList...</h1>
         </nav>
         <br>
-        
     </header>
 
 
     <main>
+        <div class="list-buttons">
+            <button class="addToList" onclick="addToListDropdown()">Add To List</button>
+            <div id="addToListDropdown" class="add-to-list-dropdown">
+                <div id="addToRead" onclick="addedToRead(event)">Add to Read</div>
+                <div id="addToReading" onclick="addedToReading(event)">Add to Reading</div>
+                <div id="addToWishlist" onclick="addedToWishList(event)">Add to Wishlist</div>
+            </div>
+            <br>
+            <br>
+            
+            <button class="removeFromList" onclick="removeFromListDropdown()">Remove From List</button>
+            <div id="removeFromListDropdown" class="remove-from-list-dropdown">
+                <div id="removeFromRead" onclick="removedFromRead(event)">Remove From Read</div>
+                <div id="removeFromReading" onclick="removedFromReading(event)">Remove From Reading</div>
+                <div id="removeFromWishlist" onclick="removedFromWishList(event)">Remove From Wishlist</div>
+            </div>
+            <br>
+            <br>
+        </div>
+        <h1 id="addedToRead" class="added-read">Added to Read List...</h1>
+        <h1 id="addedToReading" class="added-reading">Added to Reading List...</h1>
+        <h1 id="addedToWishList" class="added-wishlist">Added to WishList...</h1>
+        <h1 id="removedFromRead" class="removed-read">Removed from Read List...</h1>
+        <h1 id="removedFromReading" class="removed-reading">Removed from Reading List...</h1>
+        <h1 id="removedFromWishList" class="removed-wishlist">Removed from WishList...</h1>
         <div id="bookDetails">
         </div>
     </main>
