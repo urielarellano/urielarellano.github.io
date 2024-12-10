@@ -94,7 +94,12 @@ button:hover {
     margin-top: 20px;
 }
 
-/* Add-To-List Button/Dropdown */
+/* Add-To-List + Remove-From-List Button/Dropdown */
+.list-buttons {
+    display: flex;
+    justify-content:baseline;
+}
+
 .add-to-list-dropdown {
     margin-left: 20px;
     display: none;
@@ -103,19 +108,35 @@ button:hover {
     max-width: fit-content;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     border-radius: 5px;
+    margin-top: 53px;
+    position: absolute;
 }
 
-.add-to-list-dropdown div {
+.remove-from-list-dropdown {
+    margin-left: 149px;
+    display: none;
+    background-color: #a5d6a7;
+    padding: 10px;
+    max-width: fit-content;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    margin-top: 53px;
+    position: absolute;
+}
+
+.add-to-list-dropdown div, .remove-from-list-dropdown div {
     margin-bottom: 2px;
     text-decoration: none;
     color: #2e7d32;
     padding:5px;
 }
-.add-to-list-dropdown div:hover {
+.add-to-list-dropdown div:hover, .remove-from-list-dropdown div:hover {
     background-color: #88c08a;
     border-radius: 5px;
     cursor: pointer;
 }
+
+
 
 .added-read, .added-reading, .added-wishlist {
     display: none;

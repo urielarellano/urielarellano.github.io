@@ -79,7 +79,17 @@ window.onclick = function(event) {
         if (dropdownlist.classList.contains("dropdown"))
             dropdownlist.classList.remove("dropdown");
     }
+    if (!event.target.matches('.removeFromList')) {
+        dropdownlist = document.getElementById("removeFromListDropdown");
+        if (dropdownlist.classList.contains("dropdown"))
+            dropdownlist.classList.remove("dropdown");
+    }
 }
+
+function removeFromListDropdown() {
+    document.getElementById("removeFromListDropdown").classList.toggle("dropdown");
+}
+
 
 
 async function addedToRead() {
@@ -136,7 +146,7 @@ async function addedToReading() {
             element.classList.toggle("dropdown");
             setTimeout(() => {
                 element.classList.toggle("dropdown");
-            }, 2500);
+            }, 2200);
             console.log('Book added to reading list');
         } else {
             message = await response.text();

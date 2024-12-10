@@ -16,7 +16,8 @@
             <a href="index.html">Back to Search</a>
             <!--"hobbies": ["reading", "gaming", "coding"]-->
             <br>
-            <button class="addToList" onclick="addToListDropdown()">Add To List</button>
+            <div class="list-buttons">
+                <button class="addToList" onclick="addToListDropdown()">Add To List</button>
                 <div id="addToListDropdown" class="add-to-list-dropdown">
                     <div id="addToRead" onclick="addedToRead(event)">Add to Read</div>
                     <div id="addToReading" onclick="addedToReading(event)">Add to Reading</div>
@@ -27,6 +28,20 @@
                 <div id="addedToRead" class="added-read">Added to Read List...</div>
                 <div id="addedToReading" class="added-reading">Added to Reading List...</div>
                 <div id="addedToWishList" class="added-wishlist">Added to WishList...</div>
+                
+                <button class="removeFromList" onclick="removeFromListDropdown()">Remove From List</button>
+                <div id="removeFromListDropdown" class="remove-from-list-dropdown">
+                    <div id="removeFromRead" onclick="removedFromRead(event)">Remove From Read</div>
+                    <div id="removeFromReading" onclick="removedFromReading(event)">Remove From Reading</div>
+                    <div id="removeFromWishlist" onclick="removedFromWishList(event)">Remove From Wishlist</div>
+                </div>
+                <br>
+                <br>
+                <div id="addedToRead" class="added-read">Added to Read List...</div>
+                <div id="addedToReading" class="added-reading">Added to Reading List...</div>
+                <div id="addedToWishList" class="added-wishlist">Added to WishList...</div>
+            </div>
+            
         </nav>
     </header>
 
