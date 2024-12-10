@@ -62,6 +62,7 @@ body {
 
 /* Button for interactivity */
 button {
+    margin-left: 20px;
     background-color: #66bb6a; /* Vibrant green button */
     border: none;
     border-radius: 5px;
@@ -95,6 +96,7 @@ button:hover {
 
 /* Add-To-List Button/Dropdown */
 .add-to-list-dropdown {
+    margin-left: 20px;
     display: none;
     background-color: #a5d6a7;
     padding: 10px;
@@ -104,14 +106,19 @@ button:hover {
 }
 
 .add-to-list-dropdown div {
-    margin-bottom: 10px;
+    margin-bottom: 2px;
     text-decoration: none;
     color: #2e7d32;
+    padding:5px;
 }
 .add-to-list-dropdown div:hover {
     background-color: #88c08a;
     border-radius: 5px;
     cursor: pointer;
+}
+
+.added-read, .added-reading, .added-wishlist {
+    display: none;
 }
 
 .dropdown {

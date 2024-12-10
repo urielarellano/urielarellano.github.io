@@ -1,3 +1,5 @@
+let bookTitle = "";
+
 (async () => {
     const urlParams = new URLSearchParams(window.location.search);
     const key = urlParams.get("key");
@@ -17,8 +19,8 @@
         const response = await fetch(`https://openlibrary.org${key}.json`);
         const book = await response.json();
 
-
         const title = book.title || "Unknown Title";
+        bookTitle = title;
         const description = book.description?.value || "No description available.";
         const subjects = book.subjects ? book.subjects.join(", ") : "No subjects available.";
         const places = book.subject_places ? book.subject_places.join(", ") : "No places associated.";
@@ -66,7 +68,8 @@ async function fetchAuthorName(authorKey) {
     }
 }
 
-function addToList() {
+
+function addToListDropdown() {
     document.getElementById("addToListDropdown").classList.toggle("dropdown");
 }
 
@@ -78,5 +81,104 @@ window.onclick = function(event) {
     }
 }
 
-// we should have 3 post functions here...
-// or one with 3 if statements, whatever
+
+async function addedToRead() {
+    const user = JSON.parse(localStorage.getItem('user'));
+    const email = user[0];
+    const list = "read";
+
+    try {
+
+        const response = await fetch('/addBook', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({email, bookTitle, list})
+        });
+
+        if (response.ok) {
+            // display the message that the book was added on the frontend
+            const element = document.getElementById("addedToRead");
+            element.classList.toggle("dropdown");
+            setTimeout(() => {
+                element.classList.toggle("dropdown");
+            }, 2500);
+            console.log('Book added to read list');
+        } else {
+            message = await response.text();
+            console.log(message);
+            alert(message);
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert('Error adding book to read list');
+    }
+}
+
+async function addedToReading() {
+    const user = JSON.parse(localStorage.getItem('user'));
+    const email = user[0];
+    const list = "reading";
+
+    try {
+        const response = await fetch('/addBook', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({email, bookTitle, list})
+        });
+
+        if (response.ok) {
+            // display the message that the book was added on the frontend
+            const element = document.getElementById("addedToReading");
+            element.classList.toggle("dropdown");
+            setTimeout(() => {
+                element.classList.toggle("dropdown");
+            }, 2500);
+            console.log('Book added to reading list');
+        } else {
+            message = await response.text();
+            console.log(message);
+            alert(message);
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert('Error adding book to reading list');
+    }
+}
+
+async function addedToWishList() {
+    const user = JSON.parse(localStorage.getItem('user'));
+    const email = user[0];
+    const list = "wishlist";
+
+    try {
+
+        const response = await fetch('/addBook', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({email, bookTitle, list})
+        });
+
+        if (response.ok) {
+            // display the message that the book was added on the frontend
+            const element = document.getElementById("addedToWishList");
+            element.classList.toggle("dropdown");
+            setTimeout(() => {
+                element.classList.toggle("dropdown");
+            }, 2500);
+            console.log('Book added to read wishlist');
+        } else {
+            message = await response.text();
+            console.log(message);
+            alert(message);
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert('Error adding book to wishlist');
+    }
+}

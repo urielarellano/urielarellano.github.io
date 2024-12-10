@@ -12,7 +12,7 @@ async function getUserInfo(event) {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({email, password, location})
+            body: JSON.stringify({ email, password, location})
         });
 
         if (response.ok) {

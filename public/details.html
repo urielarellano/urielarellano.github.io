@@ -16,15 +16,17 @@
             <a href="index.html">Back to Search</a>
             <!--"hobbies": ["reading", "gaming", "coding"]-->
             <br>
-            <button class="addToList" onclick="addToList()">Add To List</button>
+            <button class="addToList" onclick="addToListDropdown()">Add To List</button>
                 <div id="addToListDropdown" class="add-to-list-dropdown">
-                    <div id="addToRead">Add to Read</div>
-                    <div id="addToReading">Add to Reading</div>
-                    <div id="addToWishlist">Add to Wishlist</div>
+                    <div id="addToRead" onclick="addedToRead(event)">Add to Read</div>
+                    <div id="addToReading" onclick="addedToReading(event)">Add to Reading</div>
+                    <div id="addToWishlist" onclick="addedToWishList(event)">Add to Wishlist</div>
                 </div>
-                <div id="addToListMessage">Added to Read List...</div>
-                <div id="addToListMessage">Added to Reading List...</div>
-                <div id="addToListMessage">Added to WishList...</div>
+                <br>
+                <br>
+                <div id="addedToRead" class="added-read">Added to Read List...</div>
+                <div id="addedToReading" class="added-reading">Added to Reading List...</div>
+                <div id="addedToWishList" class="added-wishlist">Added to WishList...</div>
         </nav>
     </header>
 

@@ -61,6 +61,30 @@ async function main() {
         }
     });
 
+    app.post('/addBook', async (req, res) => {
+        const {email, bookTitle, list} = req.body;
+
+        try {
+            const user = await usersCollection.findOne({email});
+            if (!user) {
+                res.status(404).send('User not found');
+                return;
+            }
+            if (user[list] && user[list].includes(bookTitle)) {
+                res.status(409).send('Book already exists in list');
+                return;
+            }
+            const updatedUser = await usersCollection.updateOne({email}, {$push: {[list]: bookTitle}});
+            res.status(200).send('Book added to list');
+        } catch (error) {
+            console.error('Error adding book to list', error);
+            res.status(500).send('Internal Server Error');
+        }
+    });
+
+    app.post('/removeBook', async (req, res) => {
+    });
+
     // check if the user is logged in based on email and password params and return their info
     app.get('/home', async (req, res) => {
         const {email, password} = req.query;
