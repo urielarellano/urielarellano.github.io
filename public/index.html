@@ -16,11 +16,14 @@
                 <h1>Book Base</h1>
                 <ul>
                     <li>
-                        <form>
-                            <input type="text" name="search">
-                            <a href="#"><img src="assets/search-icon.png" class="search-icon">
+                        
+                        <div class="search-container">
+                            <input type="text" id="searchInput" placeholder="Search for books...">
+                            <a href="#" id="searchButton" class="search-container">
+                                <img src="assets/search-icon.png" class="search-icon" alt="Search Icon">
                             </a>
-                        </form>
+                            
+                        </div>
                         
                     </li>
                     <li><a>
@@ -50,15 +53,10 @@
         </div>
 
         <div id="userLoggedIn">
-            <div class="header1">
+            <!-- <div class="header1">
                 <h1>Book Subject Search</h1>
-                <!--
-                <div class="search-container">
-                    <input type="text" id="searchInput" placeholder="Search for books...">
-                    <button id="searchButton">Search</button>
-                </div>
-                -->
-            </div>
+                
+            </div> -->
             
             <div class="container">
                 <!-- Left Sidebar (Genres) -->
@@ -78,10 +76,12 @@
                     <div>
                         <label for="sortSelect">Sort by:</label>
                         <select id="sortSelect">
-                            <option value="None">None</option>
-                            <option value="popularity">Popularity</option>
+                            <option value="None">Relevance</option>
                             <option value="alphabetical">Alphabetical</option>
+                            <option value="old">First Published</option>
+                            <option value="new">Most Recent</option>
                         </select>
+
                         
                     </div>
                 </aside>
@@ -93,3 +93,12 @@
         <script src="js/index.js"></script>
     </body>
 </html>
+
+
+
+
+
+
+
+
+
