@@ -65,6 +65,10 @@ document.addEventListener("DOMContentLoaded", () => {
                     `;
 
                     searchResults.appendChild(bookDiv);
+                    // probably right here we'd append a child to bookDiv
+                    // append a button...
+                    // and that button would be a dropdown menu 
+                    // with buttons to add to read/reading/wishlist
                 });
             } catch (error) {
                 console.error("Error fetching books:", error);

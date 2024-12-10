@@ -26,6 +26,7 @@ async function main() {
     const db = client.db('BookBase');
     const usersCollection = db.collection('Users');
 
+    // log a user in
     app.post('/login', async (req, res) => {
         const {email, password} = req.body;
         try {
@@ -41,6 +42,7 @@ async function main() {
         }
     });
 
+    // sign up a new user
     app.post('/signup', async (req, res) => {
         const {email, password, location} = req.body;
         try {
@@ -59,6 +61,7 @@ async function main() {
         }
     });
 
+    // check if the user is logged in based on email and password params and return their info
     app.get('/home', async (req, res) => {
         const {email, password} = req.query;
         try {
@@ -74,11 +77,6 @@ async function main() {
             console.error('Error finding user', error);
             res.status(500).send('Internal Server Error');
         }
-
-        // then in our index.js, we get this info and send it to the server
-        // and then THIS function that I'm writing in takes that info (if it exists),
-            // creates a json of it (or doesn't idfk)
-            // then checks if that info matches any in the DB
     });
 
 

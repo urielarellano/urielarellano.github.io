@@ -87,7 +87,7 @@ body {
 
 /* Main content area where books will be displayed */
 main {
-    margin-left: 260px; /* Offset the main content so it's to the right of the sidebar */
+    margin-left: 20px; /* Offset the main content so it's to the right of the sidebar */
     padding: 1rem;
     flex-grow: 1;
     overflow-y: auto;

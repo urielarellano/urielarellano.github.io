@@ -65,3 +65,18 @@ async function fetchAuthorName(authorKey) {
         return "Unknown Author";
     }
 }
+
+function addToList() {
+    document.getElementById("addToListDropdown").classList.toggle("dropdown");
+}
+
+window.onclick = function(event) {
+    if (!event.target.matches('.addToList')) {
+        dropdownlist = document.getElementById("addToListDropdown");
+        if (dropdownlist.classList.contains("dropdown"))
+            dropdownlist.classList.remove("dropdown");
+    }
+}
+
+// we should have 3 post functions here...
+// or one with 3 if statements, whatever

@@ -92,3 +92,28 @@ button:hover {
     color: #81c784; /* Light green text for footer */
     margin-top: 20px;
 }
+
+/* Add-To-List Button/Dropdown */
+.add-to-list-dropdown {
+    display: none;
+    background-color: #a5d6a7;
+    padding: 10px;
+    max-width: fit-content;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    border-radius: 5px;
+}
+
+.add-to-list-dropdown div {
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: #2e7d32;
+}
+.add-to-list-dropdown div:hover {
+    background-color: #88c08a;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.dropdown {
+    display: block;
+}
