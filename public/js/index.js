@@ -37,7 +37,6 @@ async function checkUserInfo() {
                 document.getElementById("Login").classList.toggle("display-toggle");
                 document.getElementById("Signup").classList.toggle("display-toggle");
                 document.getElementById("Profile").classList.toggle("display-toggle");
-                document.getElementById("Signout").classList.toggle("display-toggle");
                 //////////////////////////////////////////////////////////////
 
             } else {
@@ -69,7 +68,6 @@ try {
 }
 
 document.getElementById("Profile").classList.toggle("display-toggle");
-document.getElementById("Signout").classList.toggle("display-toggle");
 checkUserInfo();
 
 
