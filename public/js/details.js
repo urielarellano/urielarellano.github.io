@@ -22,10 +22,12 @@ let bookTitle = "";
         const title = book.title || "Unknown Title";
         bookTitle = title;
         const description = book.description?.value || "No description available.";
-        const subjects = book.subjects ? book.subjects.join(", ") : "No subjects available.";
-        const places = book.subject_places ? book.subject_places.join(", ") : "No places associated.";
-        const people = book.subject_people ? book.subject_people.join(", ") : "No people associated.";
-        const createdDate = book.created?.value || "Unknown creation date.";
+        const subjects = book.subjects ? book.subjects.slice(0, 10).join(", ") + (book.subjects.length > 10 ? ", ..." : "")
+        : "No subjects available.";
+        const people = book.subject_people ? book.subject_people.slice(0, 10).join(", ") + (book.subject_people.length > 10 ? ", ..." : "")
+        : "No people associated.";
+        const places = book.subject_places ? book.subject_places.slice(0, 10).join(", ") + (book.subject_places.length > 10 ? ", ..." : "")
+        : "No places associated.";const createdDate = book.created?.value || "Unknown creation date.";
         const modifiedDate = book.last_modified?.value || "Unknown modification date.";
         const coverId = book.covers && book.covers[0] !== -1
             ? `https://covers.openlibrary.org/b/id/${book.covers[0]}-L.jpg`
@@ -113,7 +115,7 @@ async function addedToRead() {
             element.classList.toggle("dropdown");
             setTimeout(() => {
                 element.classList.toggle("dropdown");
-            }, 2500);
+            }, 2200);
             console.log('Book added to read list');
         } else {
             message = await response.text();
@@ -180,7 +182,7 @@ async function addedToWishList() {
             element.classList.toggle("dropdown");
             setTimeout(() => {
                 element.classList.toggle("dropdown");
-            }, 2500);
+            }, 2200);
             console.log('Book added to read wishlist');
         } else {
             message = await response.text();
@@ -190,5 +192,107 @@ async function addedToWishList() {
     } catch (error) {
         console.error('Error:', error);
         alert('Error adding book to wishlist');
+    }
+}
+
+
+
+async function removedFromRead() {
+    const user = JSON.parse(localStorage.getItem('user'));
+    const email = user[0];
+    const list = "read";
+
+    try {
+        const response = await fetch('/removeBook', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({email, bookTitle, list})
+        });
+
+        if (response.ok) {
+            // display the message that the book was added on the frontend
+            const element = document.getElementById("removedFromRead");
+            element.classList.toggle("dropdown");
+            setTimeout(() => {
+                element.classList.toggle("dropdown");
+            }, 2200);
+            console.log('Book removed from read list');
+        } else {
+            message = await response.text();
+            console.log(message);
+            alert(message);
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert('Error removing book from read list');
+    }
+
+}
+
+async function removedFromReading() {
+    const user = JSON.parse(localStorage.getItem('user'));
+    const email = user[0];
+    const list = "reading";
+
+    try {
+        const response = await fetch('/removeBook', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({email, bookTitle, list})
+        });
+
+        if (response.ok) {
+            // display the message that the book was added on the frontend
+            const element = document.getElementById("removedFromReading");
+            element.classList.toggle("dropdown");
+            setTimeout(() => {
+                element.classList.toggle("dropdown");
+            }, 2200);
+            console.log('Book removed from reading list');
+        } else {
+            message = await response.text();
+            console.log(message);
+            alert(message);
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert('Error removing book from reading list');
+    }
+}
+
+async function removedFromWishList() {
+    const user = JSON.parse(localStorage.getItem('user'));
+    const email = user[0];
+    const list = "wishlist";
+
+    try {
+        const response = await fetch('/removeBook', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({email, bookTitle, list})
+        });
+
+        if (response.ok) {
+            // display the message that the book was added on the frontend
+            const element = document.getElementById("removedFromWishList");
+            element.classList.toggle("dropdown");
+            setTimeout(() => {
+                element.classList.toggle("dropdown");
+            }, 2200);
+            console.log('Book removed from wishlist');
+        } else {
+            message = await response.text();
+            console.log(message);
+            alert(message);
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert('Error removing book from wishlist');
     }
 }

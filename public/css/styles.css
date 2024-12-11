@@ -18,12 +18,16 @@ body {
     font-size: 12px;
     font-family: 'Georgia', serif;
 }
+
 .search-container {
-    position: absolute;
     top: 40px;
-    right: 20px;
+    right: 10px;
     display: flex;
-    align-items: center;
+}
+
+.search-icon {
+    top: 10px;
+    margin-right: 10px;
 }
 
 .search-container input {
@@ -35,7 +39,8 @@ body {
 }
 
 .search-container button {
-    padding: 0.5rem;
+    padding: 0.2rem;
+    margin-right: 200px;
     background-color: #03dac5;
     color: white;
     border: none;

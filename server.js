@@ -83,6 +83,24 @@ async function main() {
     });
 
     app.post('/removeBook', async (req, res) => {
+        const {email, bookTitle, list} = req.body;
+
+        try {
+            const user = await usersCollection.findOne({email});
+            if (!user) {
+                res.status(404).send('User not found');
+                return;
+            }
+            if (!user[list] || !user[list].includes(bookTitle)) {
+                res.status(409).send('Book does not exist in list');
+                return;
+            }
+            const updatedUser = await usersCollection.updateOne({email}, {$pull: {[list]: bookTitle}});
+            res.status(200).send('Book removed from list');
+        } catch (error) {
+            console.error('Error removing book from list', error);
+            res.status(500).send('Internal Server Error');
+        }
     });
 
     // check if the user is logged in based on email and password params and return their info
