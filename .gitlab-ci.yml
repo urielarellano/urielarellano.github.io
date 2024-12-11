@@ -1,27 +1,24 @@
 image: node:latest
 
 variables:
-  PUBLIC_URL: /cs409-final-project
+  PUBLIC_URL: https://cs409-final-project.gitlab.io/ # Update with your GitLab Pages URL
 
 cache:
   paths:
-  - node_modules
+    - node_modules
 
 stages:
   - deploy
 
 pages:
   stage: deploy
-
   script:
-    - npm install        # Install all dependencies
-    - npm run build      # Build for prod
-    - mv public _public  # CRA and gitlab pages both use the public folder. Only do this in a build pipeline.
-    - mv build public    # Move build files to public dir for Gitlab Pages
-
+    - npm install                        # Install all dependencies
+    - npm run build                      # Build for production
+    - mv public _public                  # Rename CRA's public folder (optional, remove if unnecessary)
+    - mv build public                    # Move build files to public folder for GitLab Pages
   artifacts:
     paths:
-    - public
-
+      - public                           # Deploy the public folder as a GitLab Pages artifact
   only:
-    - master
+    - master                             # Run this job only on the master branch
