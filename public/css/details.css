@@ -13,7 +13,7 @@ body {
 
 
 /* Container for book details */
-#bookDetails {
+#bookDetails, #emailDetails {
     background-color: #ffffff;
     border: 2px solid #a5d6a7;
     border-radius: 10px;

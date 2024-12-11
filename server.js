@@ -121,6 +121,28 @@ async function main() {
         }
     });
 
+    app.get('/userEmails', async (req, res) => {
+        const { bookTitle } = req.query;
+        console.log(bookTitle);
+        try {
+            const lists = ['read', 'reading', 'wishlist'];
+            const query = {
+                $or: lists.map(list => ({[list]: bookTitle}))
+            };
+
+            const users = await usersCollection.find(query).toArray();
+            if (users.length > 0) {
+                console.log(users.map(user => user.email));
+                res.status(200).send(users.map(user => user.email));
+            } else {
+                res.status(404).send('No users found with the specified book');
+            }
+        } catch (error) {
+            console.error('Error finding users', error);
+            res.status(500).send('Internal Server Error');
+        }
+    });
+
 
     app.listen(port, () => {
         console.log(`Server running at http://localhost:${port}/`);

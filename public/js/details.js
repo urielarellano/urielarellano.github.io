@@ -55,7 +55,26 @@ let bookTitle = "";
         console.error("Error fetching book details:", error);
         detailsContainer.innerHTML = "<p>Error loading book details.</p>";
     }
+
+    const emailsContainer = document.getElementById("userEmails");
+    try {
+        const response = await fetch(`/userEmails?bookTitle=${bookTitle}`);
+        if (response.ok) {
+            const emails = await response.json();
+            // user emails: richardjaymes@hotmail.com,frederick@gmail.com
+            emailsContainer.innerHTML = `
+                <p><strong>Users who have read this book:</strong><br> ${emails.join("<br>")}</p>
+            `;
+            console.log('user emails: ' + emails);
+        } else {
+            const message = await response.text();
+            console.log(message);
+        }
+    } catch (error) {
+        console.error("Error fetching user emails:", error);
+    }
 })();
+
 
 
 // Fetch author name from /authors endpoint
