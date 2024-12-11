@@ -1,5 +1,3 @@
-
-
 function openTab(evt, tabName) {
     // Hide all tab contents
     var i, tabcontent, tablinks;
@@ -46,17 +44,59 @@ async function getUserLocation() {
     }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+async function getUserInfo() {
     const userNameElement = document.getElementById('userName');
+    const locationElement = document.getElementById('location');
+    const readListElement = document.getElementById('readList');
+    const readingListElement = document.getElementById('readingList');
+    const wishlistElement = document.getElementById('wishlist');
     const user = JSON.parse(localStorage.getItem('user'));
 
     if (user) {
         const email = user[0];
-        userNameElement.textContent = email.split('@')[0]; // Display the part before the '@' as the name
+        const password = user[1];
+
+        try {
+            const response = await fetch(`/home?email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`);
+            if (response.ok) {
+                const userData = await response.json();
+
+                // Update profile details
+                userNameElement.textContent = email.split('@')[0];
+                locationElement.textContent = userData.location;
+
+                // Update read list
+                userData.read.forEach(book => {
+                    const li = document.createElement('li');
+                    li.textContent = book;
+                    readListElement.appendChild(li);
+                });
+
+                // Update currently reading list
+                userData.reading.forEach(book => {
+                    const li = document.createElement('li');
+                    li.textContent = book;
+                    readingListElement.appendChild(li);
+                });
+
+                // Update wishlist
+                userData.wishlist.forEach(book => {
+                    const li = document.createElement('li');
+                    li.textContent = book;
+                    wishlistElement.appendChild(li);
+                });
+            } else {
+                console.error('Failed to fetch user info');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert('Error fetching user info');
+        }
     } else {
         userNameElement.textContent = 'Name'; // Placeholder if the user is not logged in
     }
-    getUserLocation();
+}
 
+document.addEventListener('DOMContentLoaded', () => {
+    getUserInfo();
 });
-

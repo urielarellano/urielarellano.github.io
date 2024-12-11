@@ -61,9 +61,8 @@
             <div class="bookshelf">
                 <!-- Tabs -->
                 <div class="tabs">
-                    <button class="tablink" onclick="openTab(event, 'Recent')" id="defaultTab">Recent</button>
-                    <button class="tablink" onclick="openTab(event, 'Read')">Read</button>
-                    <button class="tablink" onclick="openTab(event, 'Reading')">Reading</button>
+                    <button class="tablink" onclick="openTab(event, 'Read')">Books You've Read</button>
+                    <button class="tablink" onclick="openTab(event, 'Reading')">Currently Reading</button>
                     <button class="tablink" onclick="openTab(event, 'Wishlist')">Wishlist</button>
                 </div>
 
@@ -79,28 +78,17 @@
 
                 <div id="Read" class="tabcontent">
                     <h2>Books You've Read</h2>
-                    <ul>
-                        <li>1984 by George Orwell</li>
-                        <li>Pride and Prejudice</li>
-                        <li>To Kill a Mockingbird</li>
-                    </ul>
+                    <ul id="readList"></ul>
                 </div>
 
                 <div id="Reading" class="tabcontent">
                     <h2>Currently Reading</h2>
-                    <ul>
-                        <li>Atomic Habits</li>
-                        <li>Educated: A Memoir</li>
-                    </ul>
+                    <ul id="readingList"></ul>
                 </div>
 
                 <div id="Wishlist" class="tabcontent">
                     <h2>Books on Your Wishlist</h2>
-                    <ul>
-                        <li>Project Hail Mary</li>
-                        <li>The Song of Achilles</li>
-                        <li>The Alchemist</li>
-                    </ul>
+                    <ul id="wishlist"></ul>
                 </div>
             </div>
         </div>
