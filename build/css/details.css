@@ -1,0 +1,181 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #e8f5e9; /* Light green background */
+    color: #2e7d32; /* Dark green text */
+    margin-top: 200px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+
+/* Container for book details */
+#bookDetails, #emailDetails {
+    background-color: #ffffff;
+    border: 2px solid #a5d6a7;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    padding: 20px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+
+/* Cover Image */
+.book-cover {
+    width: 150px;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* Title */
+#bookDetails h2 {
+    font-size: 28px;
+    color: #1b5e20; /* Darker green for emphasis */
+    margin-bottom: 10px;
+}
+
+
+/* Book Metadata */
+#bookDetails p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #4caf50; /* Medium green */
+}
+
+
+/* Highlight labels */
+#bookDetails p strong {
+    color: #1b5e20; /* Dark green for strong text */
+}
+
+
+/* Button for interactivity */
+button {
+    margin-left: 20px;
+    background-color: #66bb6a; /* Vibrant green button */
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    padding: 10px 15px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+}
+
+
+button:hover {
+    background-color: #388e3c; /* Darker green on hover */
+}
+
+
+/* Add small details */
+#bookDetails hr {
+    border: none;
+    border-top: 1px solid #a5d6a7;
+    margin: 15px 0;
+}
+
+
+#bookDetails footer {
+    font-size: 12px;
+    color: #81c784; /* Light green text for footer */
+    margin-top: 20px;
+}
+
+
+/* Add-To-List + Remove-From-List Button/Dropdown */
+.list-buttons {
+    display: flex;
+    justify-content:center;
+}
+
+
+.add-to-list-dropdown {
+    margin-left: 20px;
+    display: none;
+    background-color: #a5d6a7;
+    padding: 10px;
+    max-width: fit-content;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    margin-top: 53px;
+    position: absolute;
+}
+
+
+.remove-from-list-dropdown {
+    margin-left: 149px;
+    display: none;
+    background-color: #a5d6a7;
+    padding: 10px;
+    max-width: fit-content;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    margin-top: 53px;
+    position: absolute;
+}
+
+
+.add-to-list-dropdown div, .remove-from-list-dropdown div {
+    margin-bottom: 2px;
+    text-decoration: none;
+    color: #2e7d32;
+    padding:5px;
+}
+.add-to-list-dropdown div:hover, .remove-from-list-dropdown div:hover {
+    background-color: #88c08a;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+.added-read, .added-reading, .added-wishlist {
+    display: none;
+    margin-left: 20px;
+}
+.removed-read, .removed-reading, .removed-wishlist {
+    display: none;
+    margin-left: 20px;
+}
+
+.dropdown {
+    display: block;
+}
+
+
+
+
+
+
+.button {
+    display: inline-block;
+    text-align: center;
+    text-decoration: none; /* Remove underline */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 16px;
+
+
+    background-color: #66bb6a; /* Vibrant green button */
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+
+.button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
