@@ -94,9 +94,6 @@ nav ul li form input {
 
 
 
-main {
-    margin-top: 200px; /* Adds space between header and content */
-}
 
 @media (max-width: 768px) {
     main {

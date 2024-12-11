@@ -2,7 +2,7 @@ body {
     font-family: 'Arial', sans-serif;
     background-color: #e8f5e9; /* Light green background */
     color: #2e7d32; /* Dark green text */
-    margin: 0;
+    margin-top: 200px;
     padding: 0;
     display: flex;
     justify-content: center;
