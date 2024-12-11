@@ -50,6 +50,7 @@ async function getUserInfo() {
     const readListElement = document.getElementById('readList');
     const readingListElement = document.getElementById('readingList');
     const wishlistElement = document.getElementById('wishlist');
+    const userEmailElement = document.getElementById('userEmail'); // Added element for email
     const user = JSON.parse(localStorage.getItem('user'));
 
     if (user) {
@@ -64,6 +65,7 @@ async function getUserInfo() {
                 // Update profile details
                 userNameElement.textContent = email.split('@')[0];
                 locationElement.textContent = userData.location;
+                userEmailElement.textContent = email; // Update email
 
                 // Update read list
                 userData.read.forEach(book => {
