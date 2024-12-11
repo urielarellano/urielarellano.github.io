@@ -8,59 +8,40 @@ document.addEventListener("DOMContentLoaded", () => {
         "sports", "travel", "technology"
     ];
 
-
     const genreList = document.getElementById("genreList");
     const searchResults = document.getElementById("searchResults");
     const sortSelect = document.getElementById("sortSelect");
     const searchInput = document.getElementById("searchInput");
     const searchButton = document.getElementById("searchButton");
 
-
     // Sort genres alphabetically and create a list of genre links
     genres.sort().forEach(genre => {
         const genreItem = document.createElement("li");
-        genreItem.innerHTML = `<a href="#" data-genre="${genre}">${genre.replace("_", " ").toUpperCase()}</a>`;
+        genreItem.innerHTML = `<a href="#" data-genre="${genre}" id="${genre}">${genre.replace("_", " ").toUpperCase()}</a>`;
         genreList.appendChild(genreItem);
         genreList.appendChild(document.createElement("br"));
     });
-
-
-
 
     genreList.addEventListener("click", async (e) => {
         if (e.target.tagName === "A") {
             const genre = e.target.getAttribute("data-genre");
             searchResults.innerHTML = "<p>Loading...</p>";
 
-
             try {
                 const response = await fetch(`https://openlibrary.org/subjects/${genre}.json`);
                 const data = await response.json();
 
-
                 let books = data.works;
 
-
-                // // Sorting function based on the selected filter
+                // Sorting function based on the selected filter
                 const sortBy = sortSelect.value;
                 if (sortBy === "alphabetical") {
                     books.sort((a, b) => a.title.localeCompare(b.title)); // Sort by title alphabetically
                 } else if (sortBy === "old" || sortBy === "new") {
-                    response = await fetch(`https://openlibrary.org/subjects/${genre}&sort=${sortBy}`);
-                    data = await response.json();
+                    const response = await fetch(`https://openlibrary.org/subjects/${genre}&sort=${sortBy}`);
+                    const data = await response.json();
                     books = data.docs;
-                } else if (sortBy === "None") {
                 }
-                // if (sortBy === "popularity") {
-                //     books.sort((a, b) => (b.subject.length || 0) - (a.subject.length || 0));                  
-                // } else if (sortBy === "alphabetical") {
-                //     books.sort((a, b) => a.title.localeCompare(b.title)); // Sort by title alphabetically
-                // } else if (sortBy === "None") {
-                // }
-               
-
-
-
 
                 // Display books
                 searchResults.innerHTML = "";
@@ -69,16 +50,13 @@ document.addEventListener("DOMContentLoaded", () => {
                         ? `https://covers.openlibrary.org/b/id/${book.cover_id}-M.jpg`
                         : "https://via.placeholder.com/150";
 
-
                     const title = book.title || "Untitled";
                     const author = book.authors && book.authors.length > 0
                         ? book.authors.map((author) => author.name).join(", ")
                         : "Unknown Author";
 
-
                     const bookDiv = document.createElement("div");
                     bookDiv.className = "book";
-
 
                     bookDiv.innerHTML = `
                         <img src="${coverId}" alt="${title} Cover">
@@ -86,12 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         <p>by ${author}</p>
                     `;
 
-
                     searchResults.appendChild(bookDiv);
-                    // probably right here we'd append a child to bookDiv
-                    // append a button...
-                    // and that button would be a dropdown menu
-                    // with buttons to add to read/reading/wishlist
                 });
             } catch (error) {
                 console.error("Error fetching books:", error);
@@ -100,27 +73,24 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
+    // Simulate a click on the "art" genre link after the DOM content is loaded
+    document.getElementById("art").click();
 
     // Search button event listener
     searchButton.addEventListener("click", async () => {
         const query = searchInput.value.trim();
         if (!query) return;
 
-
         searchResults.innerHTML = "<p>Loading...</p>";
-
 
         try {
             let response = await fetch(`https://openlibrary.org/search.json?q=${encodeURIComponent(query)}`);
             let data = await response.json();
 
-
             let books = data.docs;
-
 
             // Sorting function based on the selected filter
             const sortBy = sortSelect.value;
-           
             if (sortBy === "alphabetical") {
                 books.sort((a, b) => a.title.localeCompare(b.title)); // Sort by title alphabetically
             } else if (sortBy === "old") {
@@ -131,9 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 response = await fetch(`https://openlibrary.org/search.json?q=${encodeURIComponent(query)}&sort=new`);
                 data = await response.json();
                 books = data.docs;
-            } else if (sortBy === "None") {
             }
-
 
             // Display books
             searchResults.innerHTML = "";
@@ -142,23 +110,19 @@ document.addEventListener("DOMContentLoaded", () => {
                     ? `https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`
                     : "https://via.placeholder.com/150";
 
-
                 const title = book.title || "Untitled";
                 const author = book.author_name && book.author_name.length > 0
                     ? book.author_name.join(", ")
                     : "Unknown Author";
 
-
                 const bookDiv = document.createElement("div");
                 bookDiv.className = "book";
-
 
                 bookDiv.innerHTML = `
                     <img src="${coverId}" alt="${title} Cover">
                     <h3><a href="details.html?key=${book.key}">${title}</h3>
                     <p>by ${author}</p>
                 `;
-
 
                 searchResults.appendChild(bookDiv);
             });
@@ -168,116 +132,3 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
-
-
-
-
-document.addEventListener("DOMContentLoaded", async () => {
-    const params = new URLSearchParams(window.location.search);
-    const bookKey = params.get('key');
-
-
-    if (!bookKey) {
-        document.getElementById("bookDetails").innerHTML = "<p>No book found.</p>";
-        return;
-    }
-
-
-    const resultsContainer = document.getElementById("bookDetails");
-    resultsContainer.innerHTML = "Loading...";
-
-
-    try {
-        const response = await fetch(`https://openlibrary.org${bookKey}.json`);
-        const book = await response.json();
-
-
-        const title = book.title || "Untitled";
-        const author = book.authors ? book.authors.map(author => author.name).join(", ") : "Unknown Author";
-        const description = book.description ? book.description.value : "No description available.";
-        const coverId = book.covers && book.covers[0] ? `https://covers.openlibrary.org/b/id/${book.covers[0]}-L.jpg` : "https://via.placeholder.com/300";
-       
-        resultsContainer.innerHTML = `
-            <h2>${title}</h2>
-            <h3>by ${author}</h3>
-            <img src="${coverId}" alt="${title} Cover" class="book-cover">
-            <p>${description}</p>
-        `;
-    } catch (error) {
-        console.error("Error fetching book details:", error);
-        resultsContainer.innerHTML = "<p>Error loading details.</p>";
-    }
-});
-
-
-
-
-
-
-document.getElementById("searchForm").addEventListener("submit", async (e) => {
-    e.preventDefault();
-    const query = document.getElementById("searchInput").value.trim();
-    if (!query) return;
-
-
-
-
-    const resultsContainer = document.getElementById("searchResults");
-    resultsContainer.innerHTML = "Loading...";
-
-
-
-
-    try {
-        const response = await fetch(`https://openlibrary.org/search.json?q=${encodeURIComponent(query)}`);
-        const data = await response.json();
-
-
-
-
-        resultsContainer.innerHTML = "";
-
-
-
-
-        if (data.docs.length === 0) {
-            resultsContainer.innerHTML = "<p>No results found.</p>";
-            return;
-        }
-
-
-
-
-        data.docs.slice(0, 10).forEach((book) => {
-            const coverId = book.cover_i ? `https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg` : "https://via.placeholder.com/150";
-            const author = book.author_name ? book.author_name.join(", ") : "Unknown Author";
-            const title = book.title || "Untitled";
-
-
-
-
-            const bookDiv = document.createElement("div");
-            bookDiv.className = "book";
-
-
-
-
-            bookDiv.innerHTML = `
-                <img src="${coverId}" alt="${title} Cover" class="book-cover">
-                <h3><a href="details.html?key=${book.key}">${title}</a></h3>
-                <p>by ${author}</p>
-            `;
-
-
-
-
-            resultsContainer.appendChild(bookDiv);
-        });
-    } catch (error) {
-        console.error("Error fetching books:", error);
-        resultsContainer.innerHTML = "<p>Error loading results.</p>";
-    }
-});
-
-
-
