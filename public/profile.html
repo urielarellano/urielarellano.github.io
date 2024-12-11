@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/profile.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link href='https://fonts.googleapis.com/css?family=Ingrid Darling' rel='stylesheet'>
+    <title>CS409 Final Project Profile Page</title>
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header>
+        <nav>
+            <h1><a href="index.html" class="title-header">Book Base</a></h1>
+            <ul>
+                <li><a>
+                    
+                    <img src="assets/profile-icon.png" class="profile-icon" onclick="profileFunction()">
+                    <div id="profileDropdown" class="profile-dropdown">
+                        <div id="Profile"><a href="profile.html">Profile</a></div>
+                        <div id="Login"><a href="login.html">Login</a></div>
+                        <div id="Signup"><a href="signup.html" id="Signup">Signup</a></div>
+                        <div id="Signout"><a href="index.html" onclick="signOut()">Sign out</a></div>
+                        
+                    </div>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- Profile Section -->
+    <main>
+        <div class="profile-page-container">
+            <!-- Profile Info -->
+            <div class="profile-container">
+                <div class="profile-picture">
+                    <img src="assets/profile-icon.png" alt="Profile Icon">
+                </div>
+                <div class="profile-details">
+                    <h2 id="userName">Name</h2>
+                    <p>General Area<br><div id="location">(Chicago, IL)</div></p>
+                    <div class="message-icon">
+                        <p>Message</p>
+                    </div>
+                    <p id="userEmail">Email</p> <!-- Added element for email -->
+                </div>
+            </div>
+
+            <!-- Bookshelf Section -->
+            <div class="bookshelf">
+                <!-- Tabs -->
+                <div class="tabs">
+                    <button class="tablink" onclick="openTab(event, 'Read')">Books You've Read</button>
+                    <button class="tablink" onclick="openTab(event, 'Reading')">Currently Reading</button>
+                    <button class="tablink" onclick="openTab(event, 'Wishlist')">Wishlist</button>
+                </div>
+
+                <!-- Tab Content -->
+                <div id="Recent" class="tabcontent">
+                    <h2>Recent Books</h2>
+                    <ul>
+                        <li>The Midnight Library</li>
+                        <li>Where the Crawdads Sing</li>
+                        <li>The Silent Patient</li>
+                    </ul>
+                </div>
+
+                <div id="Read" class="tabcontent">
+                    <h2>Books You've Read</h2>
+                    <ul id="readList"></ul>
+                </div>
+
+                <div id="Reading" class="tabcontent">
+                    <h2>Currently Reading</h2>
+                    <ul id="readingList"></ul>
+                </div>
+
+                <div id="Wishlist" class="tabcontent">
+                    <h2>Books on Your Wishlist</h2>
+                    <ul id="wishlist"></ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- JavaScript -->
+    <script src="js/profile.js"></script>
+    <script src="js/index.js"></script>
+</body>
+</html>

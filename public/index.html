@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/styles.css">
+        <link href='https://fonts.googleapis.com/css?family=Ingrid Darling' rel='stylesheet'>
+        <title>CS409 Final Project Homepage</title>
+    </head>
+
+    <body>
+        <header>
+            <nav>
+                <h1>Book Base</h1>
+                <ul>
+                    <li>
+                        
+                        <div class="search-container">
+                            <input type="text" id="searchInput" placeholder="Search for books...">
+                            <a href="#" id="searchButton" class="search-container">
+                                <img src="assets/search-icon.png" class="search-icon" alt="Search Icon">
+                            </a>
+                            
+                        </div>
+                        
+                    </li>
+                    <li><a>
+                        
+                        <img src="assets/profile-icon.png" class="profile-icon" onclick="profileFunction()">
+                        <div id="profileDropdown" class="profile-dropdown">
+                            <div id="Profile"><a href="profile.html">Profile</a></div>
+                            <div id="Login"><a href="login.html">Login</a></div>
+                            <div id="Signup"><a href="signup.html" id="Signup">Signup</a></div>
+                            <div id="Signout"><a href="index.html" onclick="signOut()">Sign out</a></div>
+                            
+                        </div>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <br>
+        <br>
+        <br>
+        <p></p>
+        <br>
+        
+        <div id="noUser">
+            <h1>Welcome to BookBase. Click the profile icon in the top right, then click login or signup to proceed.</h1>
+        </div>
+
+        <div id="userLoggedIn">
+            <!-- <div class="header1">
+                <h1>Book Subject Search</h1>
+                
+            </div> -->
+            
+            <div class="container">
+                <!-- Left Sidebar (Genres) -->
+                <nav class="sidebar">
+                    <ul id="genreList">
+                    </ul>
+                </nav>
+        
+                <!-- Main Content -->
+                <main>
+                    <section id="searchResults"></section>
+                </main>
+        
+                <!-- Right Sidebar (Filters) -->
+                <aside class="filters">
+                    <h3>Filters</h3>
+                    <div>
+                        <label for="sortSelect">Sort by:</label>
+                        <select id="sortSelect">
+                            <option value="None">Relevance</option>
+                            <option value="alphabetical">Alphabetical</option>
+                            <option value="old">First Published</option>
+                            <option value="new">Most Recent</option>
+                        </select>
+
+                        
+                    </div>
+                </aside>
+            </div>
+            <script src="js/script.js"></script>
+        </div>
+
+
+        <script src="js/index.js"></script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+

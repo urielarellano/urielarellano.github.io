@@ -1,0 +1,8 @@
+install:
+npm install express mongodb body-parser
+
+to run:
+node server.js
+
+https://www.w3schools.com/howto/howto_js_dropdown.asp
+
