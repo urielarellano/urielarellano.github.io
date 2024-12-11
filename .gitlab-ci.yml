@@ -1,26 +1,26 @@
 image: node:latest
 
+variables:
+  PUBLIC_URL: /cs409-final-project
+
+cache:
+  paths:
+  - node_modules
+
 stages:
-  - build
   - deploy
-
-before_script:
-  - npm install
-
-build:
-  stage: build
-  script:
-    - npm run build
-  artifacts:
-    paths:
-      - dist/
 
 pages:
   stage: deploy
+
   script:
-    - mv dist/ public/
+    - npm install
+    - npm run build
+    - mv dist public
+
   artifacts:
     paths:
-      - public
+    - public
+
   only:
     - master
